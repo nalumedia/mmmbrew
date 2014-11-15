@@ -1,0 +1,53 @@
+<%= form_for(@brewery) do |f| %>
+  <% if @brewery.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@brewery.errors.count, "error") %> prohibited this brewery from being saved:</h2>
+
+      <ul>
+      <% @brewery.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :brewery_name %><br>
+    <%= f.text_field :brewery_name %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_description %><br>
+    <%= f.text_field :brewery_description %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_street %><br>
+    <%= f.text_field :brewery_street %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_city %><br>
+    <%= f.text_field :brewery_city %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_state %><br>
+    <%= f.text_field :brewery_state %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_zip %><br>
+    <%= f.text_field :brewery_zip %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_phone %><br>
+    <%= f.text_field :brewery_phone %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_www %><br>
+    <%= f.text_field :brewery_www %>
+  </div>
+  <div class="field">
+    <%= f.label :brewery_shortdescription %><br>
+    <%= f.text_area :brewery_shortdescription %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
