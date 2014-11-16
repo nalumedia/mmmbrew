@@ -3,6 +3,9 @@
 <p>
   <strong>Brewery name:</strong>
   <%= @brewery.brewery_name %>
+  <br />
+  <%= image_tag @brewery.image.url(:medium) %>
+
 </p>
 
 <p>
@@ -44,6 +47,8 @@
   <strong>Brewery shortdescription:</strong>
   <%= @brewery.brewery_shortdescription %>
 </p>
-
+<p>
+<br/> Created By: <%= @brewery.user.try(:email) %> 
+</p>
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
 <%= link_to 'Back', breweries_path %>

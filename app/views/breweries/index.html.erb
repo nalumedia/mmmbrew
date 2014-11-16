@@ -19,8 +19,9 @@
   <tbody>
     <% @breweries.each do |brewery| %>
       <tr>
-        <td><%= brewery.brewery_name %></td>
-        <td><%= brewery.brewery_description %></td>
+        <td><%= brewery.brewery_name %><br />
+          <%= image_tag brewery.image.url(:thumb) %></td>
+        <td><%= brewery.brewery_description %><br/> Created By: <%= brewery.user.try(:email) %>   </td>
         <td><%= brewery.brewery_street %></td>
         <td><%= brewery.brewery_city %></td>
         <td><%= brewery.brewery_state %></td>

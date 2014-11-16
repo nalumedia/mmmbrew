@@ -1,6 +1,6 @@
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:index, :show]
   # GET /breweries
   # GET /breweries.json
   def index
@@ -14,7 +14,7 @@ class BreweriesController < ApplicationController
 
   # GET /breweries/new
   def new
-    @brewery = Brewery.new
+    @brewery = current_user.breweries.build
   end
 
   # GET /breweries/1/edit
@@ -24,7 +24,7 @@ class BreweriesController < ApplicationController
   # POST /breweries
   # POST /breweries.json
   def create
-    @brewery = Brewery.new(brewery_params)
+    @brewery = current_user.breweries.build(brewery_params)
 
     respond_to do |format|
       if @brewery.save
@@ -69,6 +69,6 @@ class BreweriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
-      params.require(:brewery).permit(:brewery_name, :brewery_description, :brewery_street, :brewery_city, :brewery_state, :brewery_zip, :brewery_phone, :brewery_www, :brewery_shortdescription)
+      params.require(:brewery).permit(:brewery_name, :image, :user_id, :brewery_description, :brewery_street, :brewery_city, :brewery_state, :brewery_zip, :brewery_phone, :brewery_www, :brewery_shortdescription)
     end
 end
