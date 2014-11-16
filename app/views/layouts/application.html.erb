@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Mmmbrew</title>
+  <title>mmmBrew | Local Craft Beers Brewed Fresh Daily</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -10,8 +10,20 @@
 	   <% flash.each do |name, msg| %>
      <%= content_tag(:div, msg, class: "alert alert-#{name}") %>
 <% end %>
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <%= link_to image_tag("https://s3.amazonaws.com/mmmbrew/images/mmmbrew.png"), root_path %>
+    <%= link_to "Breweries", breweries_path, class: "btn btn-default navbar-btn" %>
+  </div>
+</nav>
 
+<div class="container">
 <%= yield %>
+      
+      </div>
+
+
 
 </body>
 </html>

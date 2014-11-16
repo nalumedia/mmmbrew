@@ -17,6 +17,8 @@ gem 'bootstrap-sass'
 gem 'devise'
 gem 'paperclip'
 gem 'aws-sdk', '~> 1.20.0'
+gem 'jquery-turbolinks'
+gem 'masonry-rails', '~> 0.2.0'
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
