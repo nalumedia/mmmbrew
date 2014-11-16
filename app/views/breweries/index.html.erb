@@ -15,10 +15,10 @@
         <%= brewery.brewery_state %><br />
         <%= brewery.brewery_city %><br />
         <%= brewery.brewery_street %> <br />
-
+ <%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% if brewery.user == current_user %>
           <%= link_to 'Edit', edit_brewery_path(brewery) %>
-          <%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
+         
         <% end %>
       </div>
     </div>
