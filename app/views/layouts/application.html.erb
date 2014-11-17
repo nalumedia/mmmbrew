@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>mmmBrew | Local Craft Beers Brewed Fresh Daily</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
@@ -20,8 +20,29 @@
 
 <div class="container">
 <%= yield %>
+
+           <!-- Site footer -->
+      <br />
+      <div class="footer">
+          <% if user_signed_in? %>
+          
+          Im signed in
+
+          <% end %>
+
+
+        <p align="right" class="footertext">
+          
+
+          <span class="glyphicon glyphicon-flag"></span> Made in Encinitas, CA. 
+          &copy; 2014 Nalu Media, All Rights Reserved 
+
+           </div> <!-- end footer -->
       
       </div>
+
+
+ 
 
 
 

@@ -1,21 +1,22 @@
-<h1>mmmBrew Breweries:</h1>
+
+<% if user_signed_in? %>
+<center><%= link_to 'Add a New Brewery', new_brewery_path %></center>
+<% end %>
   <div id="breweries" class="transitions-enabled">
   <% @breweries.each do |brewery| %>
     <div class="box panel panel-default">
       <%= image_tag brewery.image.url(:medium) %>
       <div class="panel-body">
-        <%= brewery.brewery_name %><br />
-        <%= brewery.brewery_description %><br />
-      Created By: <%= brewery.user.try(:email) %><br />
-      <%= brewery.brewery_shortdescription %> <br /> 
-      <%= brewery.brewery_www %> <br />
-        <%= link_to 'Show', brewery_path(brewery) %><br />
-        <%= brewery.brewery_phone %> <br />
-        <%= brewery.brewery_zip %> <br />
-        <%= brewery.brewery_state %><br />
-        <%= brewery.brewery_city %><br />
+        <strong><%= brewery.brewery_name %></strong><br />
         <%= brewery.brewery_street %> <br />
- <%= link_to 'Destroy', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= brewery.brewery_city %>, <%= brewery.brewery_state %>, <%= brewery.brewery_zip %><br />
+        <span class="glyphicon glyphicon-phone"></span>
+        <%= brewery.brewery_phone %> <br />
+        <%= brewery.brewery_description %><br />
+      <%= brewery.brewery_shortdescription %> <br /> 
+      <%= link_to "Website", brewery.brewery_www %> | <%= link_to 'See More...', brewery_path(brewery) %><br />
+        Lister: <%= brewery.user.try(:email) %><br />
+ <%= link_to 'Delete', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% if brewery.user == current_user %>
           <%= link_to 'Edit', edit_brewery_path(brewery) %>
          
@@ -31,6 +32,4 @@
 
 
 
-<br>
 
-<%= link_to 'New Brewery', new_brewery_path %>
