@@ -11,6 +11,9 @@ class BreweriesController < ApplicationController
   # GET /breweries/1
   # GET /breweries/1.json
   def show
+    @brewery = Brewery.find(params[:id])
+    @brewery.increment!(:view)
+    @brewery.save
   end
 
   # GET /breweries/new
@@ -70,6 +73,6 @@ class BreweriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
-      params.require(:brewery).permit(:brewery_name,:brewery_food, :brewery_menulink, :brewery_yelplink, :brewery_fblink, :brewery_instalink, :brewery_hours, :tasting, :image, :user_id, :brewery_description, :brewery_street, :brewery_city, :brewery_state, :brewery_zip, :brewery_phone, :brewery_www, :brewery_shortdescription)
+      params.require(:brewery).permit(:brewery_name,:brewery_food, :view, :brewery_menulink, :brewery_yelplink, :brewery_fblink, :brewery_instalink, :brewery_hours, :tasting, :image, :user_id, :brewery_description, :brewery_street, :brewery_city, :brewery_state, :brewery_zip, :brewery_phone, :brewery_www, :brewery_shortdescription)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118053327) do
+ActiveRecord::Schema.define(version: 20141118055645) do
 
   create_table "breweries", force: true do |t|
     t.string   "brewery_name"
@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20141118053327) do
     t.string   "brewery_yelplink"
     t.string   "brewery_fblink"
     t.string   "brewery_instalink"
+    t.integer  "view"
   end
 
   add_index "breweries", ["user_id"], name: "index_breweries_on_user_id"

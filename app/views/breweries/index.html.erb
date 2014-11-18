@@ -25,6 +25,8 @@
         <%= brewery.brewery_phone %> <br />
         <%= brewery.brewery_description %><br />
         Hours: <%= brewery.brewery_hours %> <br /> 
+        Views: <%= brewery.view %> <br /> 
+        Food:<%= human_boolean(brewery.brewery_food) %> <br />
         <%= link_to "Menu", brewery.brewery_menulink %> <br /> 
         <%= link_to "Yelp", brewery.brewery_yelplink %> |
         <%= link_to "Facebook", brewery.brewery_fblink %> |
@@ -33,8 +35,8 @@
       <%= link_to "Website", brewery.brewery_www %> | <%= link_to 'See More...', brewery_path(brewery) %><br />
 
       Tasting:<%= human_boolean(brewery.tasting) %> <br />
-      Tasting:<%= human_boolean(brewery.brewery_food) %> <br />
-        Lister: <%= brewery.user.try(:name) %><br />
+      
+        Created By: <%= brewery.user.try(:name) %><br />
  <%= link_to 'Delete', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% if brewery.user == current_user %>
           <%= link_to 'Edit', edit_brewery_path(brewery) %>
