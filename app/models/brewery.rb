@@ -6,7 +6,7 @@ class Brewery < ActiveRecord::Base
 
   def self.search(search, id)
   if search
-    where(['brewery_name LIKE ?', "%#{search}%"])
+    where(['brewery_name ILIKE ?', "%#{search}%"])
   else
     self.all
   end
