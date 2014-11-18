@@ -25,7 +25,9 @@
       <br />
       <div class="footer">
           <% if user_signed_in? %>
-          
+          <%= link_to edit_user_registration_path do %>
+              <span class="glyphicon glyphicon-user"></span> Your Account
+            <% end %>
           Im signed in
 
           <% end %>

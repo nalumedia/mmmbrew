@@ -1,7 +1,7 @@
 
 <% if user_signed_in? %>
-<center><%= link_to 'Add a New Brewery', new_brewery_path %></center>
-<% end %>
+<center><%= link_to 'Add a New Brewery', new_brewery_path %>
+<% end %><br />
 
           <%= form_tag breweries_path, :method => 'get' do %>
             <p>
@@ -10,6 +10,8 @@
             </p>
           <% end %>
 
+
+</center>
 
   <div id="breweries" class="transitions-enabled">
   <% @breweries.each do |brewery| %>
@@ -22,11 +24,17 @@
         <span class="glyphicon glyphicon-phone"></span>
         <%= brewery.brewery_phone %> <br />
         <%= brewery.brewery_description %><br />
+        Hours: <%= brewery.brewery_hours %> <br /> 
+        <%= link_to "Menu", brewery.brewery_menulink %> <br /> 
+        <%= link_to "Yelp", brewery.brewery_yelplink %> |
+        <%= link_to "Facebook", brewery.brewery_fblink %> |
+        <%= link_to "Instagram", brewery.brewery_instalink %> <br /> 
       <%= brewery.brewery_shortdescription %> <br /> 
       <%= link_to "Website", brewery.brewery_www %> | <%= link_to 'See More...', brewery_path(brewery) %><br />
 
       Tasting:<%= human_boolean(brewery.tasting) %> <br />
-        Lister: <%= brewery.user.try(:email) %><br />
+      Tasting:<%= human_boolean(brewery.brewery_food) %> <br />
+        Lister: <%= brewery.user.try(:name) %><br />
  <%= link_to 'Delete', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% if brewery.user == current_user %>
           <%= link_to 'Edit', edit_brewery_path(brewery) %>

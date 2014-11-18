@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118032021) do
+ActiveRecord::Schema.define(version: 20141118053327) do
 
   create_table "breweries", force: true do |t|
     t.string   "brewery_name"
@@ -31,6 +31,12 @@ ActiveRecord::Schema.define(version: 20141118032021) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.boolean  "tasting"
+    t.text     "brewery_hours"
+    t.boolean  "brewery_food"
+    t.string   "brewery_menulink"
+    t.string   "brewery_yelplink"
+    t.string   "brewery_fblink"
+    t.string   "brewery_instalink"
   end
 
   add_index "breweries", ["user_id"], name: "index_breweries_on_user_id"
@@ -48,6 +54,7 @@ ActiveRecord::Schema.define(version: 20141118032021) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
