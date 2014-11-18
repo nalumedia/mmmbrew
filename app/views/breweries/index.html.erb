@@ -2,6 +2,15 @@
 <% if user_signed_in? %>
 <center><%= link_to 'Add a New Brewery', new_brewery_path %></center>
 <% end %>
+
+          <%= form_tag breweries_path, :method => 'get' do %>
+            <p>
+              <%= text_field_tag :search, params[:search] %>
+              <%= submit_tag "Search", :brewery_name => nil %>
+            </p>
+          <% end %>
+
+
   <div id="breweries" class="transitions-enabled">
   <% @breweries.each do |brewery| %>
     <div class="box panel panel-default">
@@ -15,6 +24,8 @@
         <%= brewery.brewery_description %><br />
       <%= brewery.brewery_shortdescription %> <br /> 
       <%= link_to "Website", brewery.brewery_www %> | <%= link_to 'See More...', brewery_path(brewery) %><br />
+
+      Tasting:<%= human_boolean(brewery.tasting) %> <br />
         Lister: <%= brewery.user.try(:email) %><br />
  <%= link_to 'Delete', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% if brewery.user == current_user %>

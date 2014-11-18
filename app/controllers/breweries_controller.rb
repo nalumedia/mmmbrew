@@ -5,6 +5,7 @@ class BreweriesController < ApplicationController
   # GET /breweries.json
   def index
     @breweries = Brewery.all
+    @breweries = Brewery.search(params[:search], params[:id])
   end
 
   # GET /breweries/1
@@ -69,6 +70,6 @@ class BreweriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def brewery_params
-      params.require(:brewery).permit(:brewery_name, :image, :user_id, :brewery_description, :brewery_street, :brewery_city, :brewery_state, :brewery_zip, :brewery_phone, :brewery_www, :brewery_shortdescription)
+      params.require(:brewery).permit(:brewery_name, :tasting, :image, :user_id, :brewery_description, :brewery_street, :brewery_city, :brewery_state, :brewery_zip, :brewery_phone, :brewery_www, :brewery_shortdescription)
     end
 end
