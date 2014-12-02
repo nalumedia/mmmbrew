@@ -41,6 +41,6 @@ class BrewlinksController < ApplicationController
     end
 
     def brewlink_params
-      params.require(:brewlink).permit(:brewlink_name, :brewlink_description, :brewlink_url)
+      params.require(:brewlink).permit(:brewlink_name, :image, :brewlink_description, :brewlink_url)
     end
 end

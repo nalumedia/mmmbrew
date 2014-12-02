@@ -1,11 +1,11 @@
 <h1>Listing brewlinks</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th>Brewlink name</th>
-      <th>Brewlink description</th>
-      <th>Brewlink url</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Link</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -13,9 +13,9 @@
   <tbody>
     <% @brewlinks.each do |brewlink| %>
       <tr>
-        <td><%= brewlink.brewlink_name %></td>
+        <td><%= brewlink.brewlink_name %><br /> <%= image_tag brewlink.image.url(:thumb) %></td>
         <td><%= brewlink.brewlink_description %></td>
-        <td><%= brewlink.brewlink_url %></td>
+        <td><%= link_to brewlink.brewlink_url, brewlink.brewlink_url %></td>
         <td><%= link_to 'Show', brewlink %></td>
         <td><%= link_to 'Edit', edit_brewlink_path(brewlink) %></td>
         <td><%= link_to 'Destroy', brewlink, method: :delete, data: { confirm: 'Are you sure?' } %></td>
