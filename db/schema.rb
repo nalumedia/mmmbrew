@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141118055645) do
+ActiveRecord::Schema.define(version: 20141202005411) do
 
   create_table "breweries", force: true do |t|
     t.string   "brewery_name"
@@ -41,6 +41,22 @@ ActiveRecord::Schema.define(version: 20141118055645) do
   end
 
   add_index "breweries", ["user_id"], name: "index_breweries_on_user_id"
+
+  create_table "brewlinks", force: true do |t|
+    t.string   "brewlink_name"
+    t.text     "brewlink_description"
+    t.string   "brewlink_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "links", force: true do |t|
+    t.string   "link_name"
+    t.string   "link_url"
+    t.text     "link_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

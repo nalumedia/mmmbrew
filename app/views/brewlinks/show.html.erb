@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Brewlink name:</strong>
+  <%= @brewlink.brewlink_name %>
+</p>
+
+<p>
+  <strong>Brewlink description:</strong>
+  <%= @brewlink.brewlink_description %>
+</p>
+
+<p>
+  <strong>Brewlink url:</strong>
+  <%= @brewlink.brewlink_url %>
+</p>
+
+<%= link_to 'Edit', edit_brewlink_path(@brewlink) %> |
+<%= link_to 'Back', brewlinks_path %>

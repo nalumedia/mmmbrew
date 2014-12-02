@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :links
+
+  resources :brewlinks
+
   devise_for :users
   resources :breweries
 
