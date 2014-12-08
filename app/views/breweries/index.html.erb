@@ -1,4 +1,4 @@
-Number of Breweries;  <%= Brewery.count %>
+Number of Breweries Listed:  <%= Brewery.count %>
 <% if user_signed_in? %>
 <center><%= link_to 'Add a New Brewery', new_brewery_path %>
 <% end %><br />
@@ -6,7 +6,7 @@ Number of Breweries;  <%= Brewery.count %>
           <%= form_tag breweries_path, :method => 'get' do %>
             <p>
               <%= text_field_tag :search, params[:search] %>
-              <%= submit_tag "Search", :brewery_name => nil %>
+              <%= submit_tag "Search For a Brewery", :brewery_name => nil %>
             </p>
           <% end %>
 
