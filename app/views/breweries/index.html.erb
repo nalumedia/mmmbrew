@@ -27,27 +27,26 @@ Number of Breweries;  <%= Brewery.count %>
   <div id="breweries" class="transitions-enabled">
   <% @breweries.each do |brewery| %>
     <div class="box panel panel-default">
-      <%= image_tag brewery.image.url(:medium) %>
+      <%= link_to image_tag(brewery.image.url(:medium)), brewery %>
       <div class="panel-body">
-        <strong><%= brewery.brewery_name %></strong><br />
+        <strong><%= link_to brewery.brewery_name, brewery_path(brewery) %></strong><br />
+        <%= brewery.brewery_description %><br />
         <%= brewery.brewery_street %> <br />
         <%= brewery.brewery_city %>, <%= brewery.brewery_state %>, <%= brewery.brewery_zip %><br />
         <span class="glyphicon glyphicon-phone"></span>
         <%= brewery.brewery_phone %> <br />
-        <%= brewery.brewery_description %><br />
-        Hours: <%= brewery.brewery_hours %> <br /> 
-        Views: <%= brewery.view %> <br /> 
-        Food:<%= human_boolean(brewery.brewery_food) %> <br />
-        <%= link_to "Menu", brewery.brewery_menulink %> <br /> 
-        <%= link_to "Yelp", brewery.brewery_yelplink %> |
-        <%= link_to "Facebook", brewery.brewery_fblink %> |
-        <%= link_to "Instagram", brewery.brewery_instalink %> <br /> 
-      <%= brewery.brewery_shortdescription %> <br /> 
-      <%= link_to "Website", brewery.brewery_www %> | <%= link_to 'See More...', brewery_path(brewery) %><br />
-
-      Tasting:<%= human_boolean(brewery.tasting) %> <br />
-      
-        Created By: <%= brewery.user.try(:name) %><br />
+      <span class="glyphicon glyphicon-cloud-upload"></span>
+      <%= link_to "Visit Brewery Website", brewery.brewery_www %><br />
+       <span class="glyphicon glyphicon-search"></span>
+      <%= link_to 'View Brewery Details', brewery_path(brewery) %><br />
+      <%= link_to "Menu Link", brewery.brewery_menulink %> <br /> 
+      <%= link_to "Yelp Link", brewery.brewery_yelplink %><br />
+      <%= link_to "Facebook Link", brewery.brewery_fblink %><br />
+      <%= link_to "Instagram Link", brewery.brewery_instalink %> <br /> 
+      Food Available:<%= human_boolean(brewery.brewery_food) %> <br />
+      Tasting Available:<%= human_boolean(brewery.tasting) %> <br />
+      Brewery Views: <%= brewery.view %> <br />
+      Brewery Added By: <%= brewery.user.try(:name) %><br />
  <%= link_to 'Delete', brewery, method: :delete, data: { confirm: 'Are you sure?' } %>
         <% if brewery.user == current_user %>
           <%= link_to 'Edit', edit_brewery_path(brewery) %>
@@ -57,6 +56,7 @@ Number of Breweries;  <%= Brewery.count %>
     </div>
   <% end %>
 </div>
+
 
 
 

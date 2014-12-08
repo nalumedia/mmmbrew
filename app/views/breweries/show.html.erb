@@ -1,54 +1,59 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Brewery name:</strong>
-  <%= @brewery.brewery_name %>
+
+<center> <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- mmmbrew 728x90 view header -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-6273954436598309"
+     data-ad-slot="9169299246"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</center>
+  
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @brewery.brewery_name %></h3>
+  </div>
+  <div class="panel-body">
   <br />
   <%= image_tag @brewery.image.url(:medium) %>
 
 </p>
 
 <p>
-  <strong>Brewery description:</strong>
   <%= @brewery.brewery_description %>
 </p>
 
 <p>
-  <strong>Brewery street:</strong>
-  <%= @brewery.brewery_street %>
+  <%= @brewery.brewery_street %><br />
+   <%= @brewery.brewery_city %>, <%= @brewery.brewery_state %> <%= @brewery.brewery_zip %>
 </p>
 
 <p>
-  <strong>Brewery city:</strong>
-  <%= @brewery.brewery_city %>
+  <span class="glyphicon glyphicon-phone"></span> <%= @brewery.brewery_phone %>
 </p>
 
 <p>
-  <strong>Brewery state:</strong>
-  <%= @brewery.brewery_state %>
+  <span class="glyphicon glyphicon-cloud-upload"></span>
+  <%= link_to "Website", @brewery.brewery_www %>
 </p>
 
-<p>
-  <strong>Brewery zip:</strong>
-  <%= @brewery.brewery_zip %>
-</p>
-
-<p>
-  <strong>Brewery phone:</strong>
-  <%= @brewery.brewery_phone %>
-</p>
-
-<p>
-  <strong>Brewery www:</strong>
-  <%= @brewery.brewery_www %>
-</p>
-
-<p>
-  <strong>Brewery shortdescription:</strong>
-  <%= @brewery.brewery_shortdescription %>
-</p>
 <p>
 <br/> Created By: <%= @brewery.user.try(:email) %> 
-</p>
+</p>   
+
 <%= link_to 'Edit', edit_brewery_path(@brewery) %> |
 <%= link_to 'Back', breweries_path %>
+
+  </div><!-- panel body div --> 
+</div>
+
+
+
+
+
+
+
