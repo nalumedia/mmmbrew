@@ -11,41 +11,58 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brewery_name %><br>
-    <%= f.text_field :brewery_name %>
+    <%= f.text_field :brewery_name, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brewery_description %><br>
-    <%= f.text_field :brewery_description %>
+    <%= f.text_field :brewery_description, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brewery_street %><br>
-    <%= f.text_field :brewery_street %>
+    <%= f.text_field :brewery_street, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brewery_city %><br>
-    <%= f.text_field :brewery_city %>
+    <%= f.text_field :brewery_city, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brewery_state %><br>
-    <%= f.text_field :brewery_state %>
+    <%= f.text_field :brewery_state, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brewery_zip %><br>
-    <%= f.text_field :brewery_zip %>
+    <%= f.text_field :brewery_zip, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brewery_phone %><br>
-    <%= f.text_field :brewery_phone %>
+    <%= f.text_field :brewery_phone, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :brewery_www %><br>
-    <%= f.text_field :brewery_www %>
+    <%= f.text_field :brewery_www, class: "form-control" %>
   </div>
-  <div class="field">
+
+  <div class="form-group">
+    <%= f.label :brewery_yelplink %><br>
+    <%= f.text_field :brewery_yelplink, class: "form-control" %>
+  </div>
+
+
+  <div class="form-group">
+    <%= f.label :brewery_fblink %><br>
+    <%= f.text_field :brewery_fblink, class: "form-control" %>
+  </div>
+
+    <div class="form-group">
+    <%= f.label :brewery_instalink %><br>
+    <%= f.text_field :brewery_instalink, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
     <%= f.label :brewery_shortdescription %><br>
-    <%= f.text_area :brewery_shortdescription %>
+    <%= f.text_area :brewery_shortdescription, class: "form-control" %>
   </div>
 
 <div class="form-group">
@@ -55,11 +72,11 @@
 
 <div class="form-group">
     <%= f.label :tasting %>
-    <%= f.check_box :tasting %>
+    <%= f.check_box :tasting, class: "form-control" %>
   </div>
 
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-danger" %>
   </div>
 <% end %>
