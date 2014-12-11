@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
   resources :links
-
   resources :brewlinks
-
   devise_for :users
   resources :breweries
 
   get 'pages/home'
+  get "brewmap" => "pages#brewmap"
   root 'breweries#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
